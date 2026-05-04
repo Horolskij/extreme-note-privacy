@@ -1,6 +1,6 @@
 # Privacy Policy for Extreme Note
 
-**Effective Date:** April 2026
+**Effective Date:** May 2026
 
 Thank you for using Extreme Note! We are committed to protecting your privacy. This Privacy Policy explains what information we collect, how we use it, and how we protect it.
 
