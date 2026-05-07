@@ -30,10 +30,12 @@ Extreme Note includes optional features to export and read your notes/spreadshee
 - The "Open Google" button lists only files visible under the `drive.file` per-file scope (i.e. files this extension created or you previously opened with it). The content of the file you click is fetched once and loaded into a local tab; it is not sent anywhere else.
 - The use of information received from Google APIs will adhere to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
 
-### MyMemory Translation API
-Extreme Note includes a translation feature that utilizes the free, public MyMemory Translation API (`api.mymemory.translated.net`).
-- Only the specific text you highlight and choose to translate is sent to this service.
-- No personal identifiers, account data, or entire notes are sent.
+### Translation
+Extreme Note tries Chrome's built-in **Translator API** first (available in Chrome 138 and newer). When this API is used, translation runs **entirely on your device** — the selected text never leaves your computer. The first use for a language pair downloads a translation model (~30-150 MB) from Google to your device.
+
+If the built-in API is unavailable (older Chrome), the extension falls back to the free public **MyMemory Translation API** (`api.mymemory.translated.net`). In that case only the specific text you highlighted is sent to MyMemory; no personal identifiers, account data, or full notes.
+
+The "Open in Google Translate" button opens https://translate.google.com in a new tab with your text pre-filled — that interaction is between you and Google, governed by Google's own privacy policy.
 
 ## 4. Data Sharing and Selling
 We **do not** sell, rent, or trade any of your personal information or note content to third parties. We do not use your data for advertising purposes.
