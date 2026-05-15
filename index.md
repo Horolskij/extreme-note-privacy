@@ -30,6 +30,21 @@ Extreme Note includes optional features to export and read your notes/spreadshee
 - The "Open Google" button lists only files visible under the `drive.file` per-file scope (i.e. files this extension created or you previously opened with it). The content of the file you click is fetched once and loaded into a local tab; it is not sent anywhere else.
 - The use of information received from Google APIs will adhere to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
 
+### Voice Dictation
+The optional dictation feature uses Chrome's built-in **Web Speech API** to convert your voice to text. When you click the microphone button:
+- Chrome asks for microphone permission (you can deny without breaking other features)
+- While dictating, audio is processed by your browser's speech recognition service. Chrome currently routes voice through Google's servers — this behavior is controlled by the browser, not by Extreme Note.
+- Only the recognized text is inserted into your note. **Audio is never stored by Extreme Note and never sent to the developer.**
+- Stop dictation by clicking the microphone button again, or stay silent for ~30 seconds (the browser auto-stops).
+
+### YouTube Transcript Import
+The optional "Import YouTube transcript" button reads the captions track of the YouTube video you are currently watching. It does this entirely within your browser:
+- Reads `ytInitialPlayerResponse` from the YouTube page (already loaded by YouTube itself when you opened the video)
+- Fetches the caption track from `youtube.com` (the request originates from the YouTube tab in your browser, not from any developer server)
+- Inserts the transcript text and clickable timestamps into your active note
+
+No data is sent to the developer. The extension does not operate any backend server. The interaction is between you and YouTube.
+
 ### Translation
 Extreme Note tries Chrome's built-in **Translator API** first (available in Chrome 138 and newer). When this API is used, translation runs **entirely on your device** — the selected text never leaves your computer. The first use for a language pair downloads a translation model (~30-150 MB) from Google to your device.
 
