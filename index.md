@@ -1,6 +1,6 @@
 # Privacy Policy for Extreme Note
 
-**Effective Date:** May 2026
+**Effective Date:** July 2026
 
 Thank you for using Extreme Note! We are committed to protecting your privacy. This Privacy Policy explains what information we collect, how we use it, and how we protect it.
 
@@ -37,13 +37,21 @@ The optional dictation feature uses Chrome's built-in **Web Speech API** to conv
 - Only the recognized text is inserted into your note. **Audio is never stored by Extreme Note and never sent to the developer.**
 - Stop dictation by clicking the microphone button again, or stay silent for ~30 seconds (the browser auto-stops).
 
-### YouTube Transcript Import
-The optional "Import YouTube transcript" button reads the captions track of the YouTube video you are currently watching. It does this entirely within your browser:
-- Reads `ytInitialPlayerResponse` from the YouTube page (already loaded by YouTube itself when you opened the video)
-- Fetches the caption track from `youtube.com` (the request originates from the YouTube tab in your browser, not from any developer server)
-- Inserts the transcript text and clickable timestamps into your active note
+### Video Transcript Import
+The optional "Import transcript" button reads the captions/transcript of the video you are currently watching. Supported sources include YouTube, Vimeo, and sites that render a transcript panel (e.g. Coursera, Udemy). It works entirely within your browser:
+- Reads the caption data the video site has already loaded into the page (e.g. `ytInitialPlayerResponse` on YouTube, the player config on Vimeo, or the visible transcript panel on other sites)
+- Any caption fetch originates from the video site's own tab in your browser, not from any developer server
+- Inserts the transcript text (and clickable timestamps where available) into your active note
 
-No data is sent to the developer. The extension does not operate any backend server. The interaction is between you and YouTube.
+No data is sent to the developer. The extension does not operate any backend server. The interaction is between you and the video site.
+
+### On-device AI (Summarize, Flashcards, Quiz, Ask, Rewrite, Fix grammar)
+These optional features use Chrome's built-in AI APIs (Gemini Nano, Chrome 138+): the **Summarizer**, **Prompt** (`LanguageModel`), **Rewriter**, and **Proofreader** APIs. They all run **entirely on your device** — your note text never leaves your computer and is never sent to the developer. The first use downloads a model from Google to your device.
+- **Summarize** condenses the note. If you pick a non-English summary language, the result is translated with the on-device Translator below (MyMemory fallback on older Chrome).
+- **Flashcards / Quiz** generate study questions from the note; you can insert them or export a `.csv`.
+- **Ask this note** answers questions grounded only in the current note.
+- **Rewrite / Fix** (Simplify / Formal / Expand / Shorten / Fix grammar) processes the selected text and previews the result — in your chosen language or the original — so you can replace or insert it.
+For long notes, the text is first condensed locally (Summarizer) so it fits the on-device model — still entirely on your device.
 
 ### Translation
 Extreme Note tries Chrome's built-in **Translator API** first (available in Chrome 138 and newer). When this API is used, translation runs **entirely on your device** — the selected text never leaves your computer. The first use for a language pair downloads a translation model (~30-150 MB) from Google to your device.
